@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import UrlShortnerForm from "./components/UrlShortnerForm.vue";
+import UrlShortnerForm from "./components/UrlShortenerForm.vue";
 
 export default {
   name: "app",

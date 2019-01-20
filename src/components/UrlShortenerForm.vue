@@ -13,7 +13,7 @@
           id="url"
           type="url"
           placeholder="http://www.my-very-long-url.com/with-a-very-long-endpoint?and=very-long-query"
-          v-model="input"
+          v-model="url"
         />
       </div>
       <div class="flex items-center justify-between">
@@ -47,13 +47,15 @@ import axios from "axios";
 export default {
   data() {
     return {
-      input: "",
+      url: "",
       shortenedUrl: "",
-      errorMessage: "",
-      formDisabled: false
+      errorMessage: ""
     };
   },
   computed: {
+    formDisabled() {
+      return !this.url;
+    },
     formButtonClasses() {
       if (this.formDisabled) {
         return ["opacity-50", "cursor-not-allowed"];
@@ -68,24 +70,25 @@ export default {
   },
   methods: {
     async shortenUrl() {
-      this.formDisabled = true;
+      // this.formDisabled = true;
+      this.errorMessage = "";
 
       try {
-        await axios.post("/shorten", {
-          url: this.input
+        let response = await axios.post("http://localhost:3001/shortener", {
+          url: this.url
         });
 
-        this.shortenedUrl = "http://bit.ly/demo";
+        this.shortenedUrl = response.data.shortenedUrl;
       } catch (err) {
         this.errorMessage = "An error happened";
-        this.formDisabled = false;
+        // this.formDisabled = false;
       }
     }
   },
   watch: {
     input() {
       this.shortenedUrl = "";
-      this.formDisabled = false;
+      // this.formDisabled = false;
     }
   }
 };

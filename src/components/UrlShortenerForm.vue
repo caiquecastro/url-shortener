@@ -1,9 +1,7 @@
 <template>
-  <div class="w-full max-w-lg mx-auto">
-    <form
-      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-      @submit.prevent="shortenUrl"
-    >
+  <div class="w-full mx-auto">
+    <h1 class="text-grey-darker mb-4">Shorten your url</h1>
+    <form @submit.prevent="shortenUrl">
       <div class="mb-4">
         <label class="block text-grey-darker text-sm font-bold mb-2" for="url">
           Url
@@ -27,9 +25,15 @@
         </button>
       </div>
 
-      <div class="mt-4 p-4 bg-grey-light rounded" v-show="shortenedUrl">
-        {{ shortenedUrl }}
-      </div>
+      <a
+        class="mt-4 p-4 bg-grey-light rounded flex items-center"
+        v-show="shortenedUrl"
+        :href="shortenedUrl"
+        target="_blank"
+      >
+        <img class="mr-2" src="../assets/link.svg" alt="Link to Full Address">
+        <span v-text="shortenedUrl"></span>
+      </a>
 
       <div
         class="mt-4 p-4 bg-red-light text-white rounded"
@@ -49,12 +53,13 @@ export default {
     return {
       url: "",
       shortenedUrl: "",
-      errorMessage: ""
+      errorMessage: "",
+      urlChanged: true
     };
   },
   computed: {
     formDisabled() {
-      return !this.url;
+      return !this.url || !this.urlChanged;
     },
     formButtonClasses() {
       if (this.formDisabled) {
@@ -70,7 +75,7 @@ export default {
   },
   methods: {
     async shortenUrl() {
-      // this.formDisabled = true;
+      this.urlChanged = false;
       this.errorMessage = "";
 
       try {
@@ -81,14 +86,13 @@ export default {
         this.shortenedUrl = response.data.shortenedUrl;
       } catch (err) {
         this.errorMessage = "An error happened";
-        // this.formDisabled = false;
       }
     }
   },
   watch: {
-    input() {
+    url() {
       this.shortenedUrl = "";
-      // this.formDisabled = false;
+      this.urlChanged = true;
     }
   }
 };

@@ -9,3 +9,11 @@
 body {
     @apply bg-primary;
 }
+
+.Nav__button {
+    @apply text-blue;
+}
+
+.Nav__button:hover {
+    @apply text-blue-darker;
+}

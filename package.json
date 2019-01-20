@@ -6,9 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "start:dev": "nodemon server",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit",
-    "start:dev": "nodemon server"
+    "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -16,7 +16,8 @@
     "knex": "^0.16.3",
     "randomstring": "^1.1.5",
     "sqlite3": "^4.0.6",
-    "vue": "^2.5.21"
+    "vue": "^2.5.21",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.3.0",

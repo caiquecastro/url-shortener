@@ -21,7 +21,14 @@ app.use(bodyParser.json());
 app.get("/urls", async (req, res) => {
   const urls = await db("urls");
 
-  res.json(urls);
+  res.json(
+    urls.map(url => {
+      return {
+        ...url,
+        shortened: `${appUrl}/${url.shortened}`
+      };
+    })
+  );
 });
 
 app.post("/shortener", async (req, res, next) => {
@@ -53,6 +60,12 @@ app.get("/:id", async (req, res, next) => {
     if (!url) {
       res.json(404).json({});
     }
+
+    await db("urls")
+      .update({
+        clicks: url.clicks + 1
+      })
+      .where("id", url.id);
 
     res.redirect(url.original);
   } catch (err) {

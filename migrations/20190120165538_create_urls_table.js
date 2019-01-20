@@ -4,6 +4,10 @@ exports.up = function(knex) {
     t.string("original");
     t.string("shortened").unique();
     t.timestamp("date");
+    t.integer("clicks")
+      .unsigned()
+      .notNull()
+      .default(0);
   });
 };
 

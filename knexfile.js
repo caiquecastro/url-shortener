@@ -1,10 +1,5 @@
-// Update with your config settings.
+const config = require("./server/config");
 
 module.exports = {
-  development: {
-    client: "sqlite3",
-    connection: {
-      filename: "./urlshortener.sqlite"
-    }
-  }
+  development: config.database
 };

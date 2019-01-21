@@ -41,3 +41,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### Improvements
 
 * Urls redirect / clicks counter
+
+### Docker Instructions
+
+To build the image:
+
+docker build -t caiquecastro/url-shortener .
+
+docker run -it -p 3001:3001 --rm --name url-shortener caiquecastro/url-shortener

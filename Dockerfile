@@ -1,0 +1,21 @@
+# use node latest version as docker base image
+FROM node:11.6
+
+# set the app working directory
+WORKDIR /app
+
+# copy the dependencies manifest files
+COPY package.json ./
+COPY yarn.lock ./
+
+# install yarn dependencies
+RUN yarn install
+
+# copy the project files 
+COPY . .
+
+# build the frontend app
+RUN npm run build
+
+EXPOSE 80
+CMD [ "node", "server" ]

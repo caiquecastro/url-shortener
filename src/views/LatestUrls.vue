@@ -9,7 +9,7 @@
       {{ errorMessage }}
     </div>
 
-    <table class="w-full">
+    <table class="w-full" v-if="!errorMessage">
       <thead>
         <tr>
           <th>Original link</th>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import api from "@/api";
 
 export default {
   data() {
@@ -42,7 +42,7 @@ export default {
   },
   async created() {
     try {
-      const response = await axios.get("http://localhost:3001/urls");
+      const response = await api.get("/urls");
 
       this.urls = response.data;
     } catch (err) {

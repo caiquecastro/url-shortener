@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import api from "../api";
 
 export default {
   data() {
@@ -79,13 +79,13 @@ export default {
       this.errorMessage = "";
 
       try {
-        let response = await axios.post("http://localhost:3001/shortener", {
+        let response = await api.post("/urls", {
           url: this.url
         });
 
         this.shortenedUrl = response.data.shortenedUrl;
       } catch (err) {
-        this.errorMessage = "An error happened";
+        this.errorMessage = err.message;
       }
     }
   },

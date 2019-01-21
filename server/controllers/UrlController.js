@@ -45,7 +45,7 @@ exports.show = async (req, res, next) => {
       .first();
 
     if (!url) {
-      res.json(404).json({});
+      return res.json(404).json({});
     }
 
     await db("urls")

@@ -2,10 +2,7 @@
   <div class="about">
     <h1 class="text-grey-darker mb-4">Latest Urls</h1>
 
-    <div
-        class="mt-4 p-4 bg-red-light text-white rounded"
-        v-show="errorMessage"
-      >
+    <div class="mt-4 p-4 bg-red-light text-white rounded" v-show="errorMessage">
       {{ errorMessage }}
     </div>
 
@@ -49,5 +46,5 @@ export default {
       this.errorMessage = err.message;
     }
   }
-}
+};
 </script>

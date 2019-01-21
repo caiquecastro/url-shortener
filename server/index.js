@@ -8,6 +8,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use(express.static("dist"));
+
 app.get("/urls", UrlController.index);
 
 app.post("/urls", UrlController.store);
@@ -15,3 +17,7 @@ app.post("/urls", UrlController.store);
 app.get("/:id", UrlController.show);
 
 app.listen(3001);
+
+process.on("SIGINT", () => {
+  process.exit(0);
+});

@@ -1,15 +1,14 @@
 # use node latest version as docker base image
-FROM node:11.6
+FROM node:12
 
 # set the app working directory
 WORKDIR /app
 
 # copy the dependencies manifest files
-COPY package.json ./
-COPY yarn.lock ./
+COPY package*.json ./
 
-# install yarn dependencies
-RUN yarn install
+# install npm dependencies
+RUN npm install
 
 # copy the project files 
 COPY . .

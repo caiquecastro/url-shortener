@@ -17,3 +17,11 @@ body {
 .Nav__button:hover {
     @apply text-blue-darker;
 }
+
+.ErrorMessage {
+    @apply p-4;
+    @apply mt-4;
+    @apply rounded;
+    @apply text-white;
+    @apply bg-red-light;
+}

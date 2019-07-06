@@ -35,10 +35,7 @@
         <span v-text="shortenedUrl"></span>
       </a>
 
-      <div
-        class="mt-4 p-4 bg-red-light text-white rounded"
-        v-show="errorMessage"
-      >
+      <div class="ErrorMessage" v-show="errorMessage">
         {{ errorMessage }}
       </div>
     </form>

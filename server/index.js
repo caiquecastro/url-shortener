@@ -6,6 +6,8 @@ const UrlController = require("./controllers/UrlController");
 
 const app = express();
 
+const PORT = process.env.PORT || 3001;
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -17,7 +19,7 @@ app.post("/urls", UrlController.store);
 
 app.get("/:id", UrlController.show);
 
-app.listen(3001);
+app.listen(PORT);
 
 process.on("SIGINT", () => {
   process.exit(0);

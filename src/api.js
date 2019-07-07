@@ -1,5 +1,5 @@
 import Axios from "axios";
 
 export default Axios.create({
-  baseURL: "http://localhost:3001"
+  baseURL: process.env.VUE_APP_API_URL
 });

@@ -31,7 +31,7 @@
         :href="shortenedUrl"
         target="_blank"
       >
-        <img class="mr-2" src="../assets/link.svg" alt="Link to Full Address">
+        <img class="mr-2" src="../assets/link.svg" alt="Link to Full Address" />
         <span v-text="shortenedUrl"></span>
       </a>
 

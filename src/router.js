@@ -20,4 +20,4 @@ export default new Router({
         import(/* webpackChunkName: "latest" */ "./views/LatestUrls.vue")
     }
   ]
-})
+});

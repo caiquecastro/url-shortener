@@ -1,9 +1,7 @@
 module.exports = {
   database: {
-    client: "sqlite",
-    connection: {
-      filename: "./urlshortener.sqlite"
-    },
+    client: "mysql",
+    connection: process.env.DB_CONNECTION,
     useNullAsDefault: true
   }
 };

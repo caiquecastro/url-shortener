@@ -25,3 +25,12 @@ body {
     @apply text-white;
     @apply bg-red-light;
 }
+
+.ShortenedLink {
+    @apply bg-grey-light;
+    @apply mt-4;
+    @apply p-4;
+    @apply rounded;
+    @apply flex;
+    @apply items-center;
+}

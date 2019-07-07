@@ -26,7 +26,7 @@
       </div>
 
       <a
-        class="mt-4 p-4 bg-grey-light rounded flex items-center"
+        class="ShortenedLink"
         v-show="shortenedUrl"
         :href="shortenedUrl"
         target="_blank"

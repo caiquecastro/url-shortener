@@ -14,8 +14,10 @@
     <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <router-view />
     </div>
-    <p class="text-center text-grey text-xs">
-      ©2018 - Url Shortener by Caique Castro. All rights reserved.
-    </p>
+    <footer class="Footer">
+      <p>
+        &copy; 2018 - 2019 - Url Shortener by Caique Castro. All rights reserved.
+      </p>
+    </footer>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="w-full mx-auto">
-    <h1 class="text-grey-darker mb-4">Shorten your url</h1>
+    <h1 class="AppTitle">Shorten your url</h1>
     <form @submit.prevent="shortenUrl">
       <div class="mb-4">
         <label class="block text-grey-darker text-sm font-bold mb-2" for="url">

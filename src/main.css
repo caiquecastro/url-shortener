@@ -18,6 +18,12 @@ body {
     @apply text-blue-darker;
 }
 
+.AppTitle {
+    @apply text-3xl;
+    @apply text-grey-darkest;
+    @apply mb-4;
+}
+
 .ErrorMessage {
     @apply p-4;
     @apply mt-4;
@@ -33,4 +39,10 @@ body {
     @apply rounded;
     @apply flex;
     @apply items-center;
+}
+
+.Footer {
+    @apply text-grey;
+    @apply text-center;
+    @apply text-xs;
 }

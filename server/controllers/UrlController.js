@@ -5,17 +5,21 @@ const config = require("../config");
 const db = knex(config.database);
 const appUrl = "http://localhost:3001";
 
-exports.index = async (req, res) => {
-  const urls = await db("urls");
+exports.index = async (req, res, next) => {
+  try {
+    const urls = await db("urls");
 
-  res.json(
-    urls.map(url => {
-      return {
-        ...url,
-        shortened: `${appUrl}/${url.shortened}`
-      };
-    })
-  );
+    res.json(
+      urls.map(url => {
+        return {
+          ...url,
+          shortened: `${appUrl}/${url.shortened}`
+        };
+      })
+    );
+  } catch (err) {
+    next(err);
+  }
 };
 
 exports.store = async (req, res, next) => {

@@ -1,3 +1,4 @@
+const path = require("path");
 const cors = require("cors");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -8,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(express.static("dist"));
+app.use(express.static(path.join(__dirname, "../dist")));
 
 app.get("/urls", UrlController.index);
 

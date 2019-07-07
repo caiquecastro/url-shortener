@@ -3,7 +3,7 @@ const randomstring = require("randomstring");
 const config = require("../config");
 
 const db = knex(config.database);
-const appUrl = "http://localhost:3001";
+const appUrl = process.env.APP_URL || "http://localhost:3001";
 
 exports.index = async (req, res, next) => {
   try {

@@ -2,6 +2,7 @@ const path = require("path");
 const cors = require("cors");
 const express = require("express");
 const bodyParser = require("body-parser");
+const history = require("connect-history-api-fallback");
 const UrlController = require("./controllers/UrlController");
 
 const app = express();
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(history());
 
 app.use(express.static(path.join(__dirname, "../dist")));
 

@@ -13,13 +13,13 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(history());
 
-app.use(express.static(path.join(__dirname, "../dist")));
-
 app.get("/urls", UrlController.index);
 
 app.post("/urls", UrlController.store);
 
 app.get("/:id", UrlController.show);
+
+app.use(express.static(path.join(__dirname, "../dist")));
 
 app.listen(PORT);
 

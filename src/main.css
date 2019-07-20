@@ -10,8 +10,14 @@ body {
     @apply bg-primary;
 }
 
+a {
+    @apply text-blue;
+    @apply underline;
+}
+
 .Nav__button {
     @apply text-blue;
+    @apply no-underline;
 }
 
 .Nav__button:hover {

@@ -18,6 +18,11 @@ export default new Router({
       name: "latest",
       component: () =>
         import(/* webpackChunkName: "latest" */ "./views/LatestUrls.vue")
+    },
+    {
+      path: "*",
+      component: () =>
+        import(/* webpackChunkName: "errors" */ "./views/NotFound.vue")
     }
   ]
 });

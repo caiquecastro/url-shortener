@@ -8,17 +8,17 @@ jobs:
 
     strategy:
       matrix:
-        node: [8, 10, 12]
+        node: [14, 16, 18, 19]
 
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 3
 
     - name: Set Node.js version
-      uses: actions/setup-node@v1.1.0
+      uses: actions/setup-node@v3
       with:
-        version: ${{ matrix.node }}
+        node-version: ${{ matrix.node }}
 
     - name: Install npm dependencies
       run: npm ci

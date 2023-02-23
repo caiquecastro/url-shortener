@@ -1,5 +1,5 @@
 # use node latest version as docker base image
-FROM node:12
+FROM node:18
 
 # set the app working directory
 WORKDIR /app
